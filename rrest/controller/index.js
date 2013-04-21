@@ -40,7 +40,7 @@ function getMsg(callback){
             cursor.toArray(function(err,results){
                 http.get('http://10.20.159.92:8080/rpc/userQuery/getUser.json?account=kai.fangk',function(res){
                     res.on('data', function(d) {
-                        callback(err,results,JSON.parse(d.toString('utf8', 0, d.length)))
+                        callback(err,results,d.toString('utf8', 0, d.length))
                     });
                 })
             })
@@ -52,7 +52,7 @@ function getMsg(callback){
 home.index = function(req, res){
     var param = req.getparam['param']||"param";
     getMsg(function(err,results,ress){
-        res.render('/index.ejs',{pagetitle:param,supplies:results,ress:ress});
+        res.render('/index.ejs',{pagetitle:param,supplies:results,ress:JSON.parse(ress),resstr:ress});
     });
     return;
 }
