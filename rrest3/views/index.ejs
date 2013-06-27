@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title><%= pagetitle%></title>
+    </head>
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <script src="/static/js/jquery.1.6.2.js"></script>
+    <script>
+        jQuery(function(){
+        })
+    </script>
+    <body>  
+        <div id="sb">
+            <%= ress["content"]["companyAddress"]%>
+        </div>
+        <div id="sb">
+            <%= resstr%>
+        </div>
+        <ul>
+            <% for(var i=0; i<supplies.length; i++) { %>
+                <li>
+                    <a href='#'>
+                        <%= supplies[i].first_name %>
+                        <%= supplies[i].last_name %>
+                        <%= supplies[i]._id %>
+                    </a>
+                </li>
+            <% } %>
+        </ul>
+    </body>
+</html>
